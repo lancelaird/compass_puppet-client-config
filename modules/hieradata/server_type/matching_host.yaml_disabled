@@ -1,6 +1,0 @@
----
-classes:
-- compassmon::client
-- puppetagent
-- puppetagent::ec2
-- compass_agent_config
