@@ -1,0 +1,177 @@
+### This section delimits the CBE formatted log into separate fields using the standard labels.
+
+<Extension cbe_available_situation>
+    Module      xm_csv  
+		Fields creationTime,version,severity,sourceComponentId_location,sourceComponentId_locationType,msg,globalInstanceId,sourceComponentId_component,sourceComponentId_subComponent,sourceComponentId.componentIdType,sourceComponentId_componentType,sourceComponentId_application,sourceComponentId_instanceId,sourceComponentId_processId,sourceComponentId_threadId,situation_categoryName,situation_situationType_reasoningScope,situation_situationType_operationDisposition,situation_situationType_availabilityDisposition,situation_situationType_processingDisposition,msgDataElement_msgId,msgDataElement_msgIdType,repeatCount,elapsedTime,sequenceNumber
+    Delimiter |
+</Extension>
+
+<Extension cbe_configure_situation>
+    Module      xm_csv  
+		Fields creationTime,version,severity,sourceComponentId_location,sourceComponentId_locationType,msg,globalInstanceId,sourceComponentId_component,sourceComponentId_subComponent,sourceComponentId.componentIdType,sourceComponentId_componentType,sourceComponentId_application,sourceComponentId_instanceId,sourceComponentId_processId,sourceComponentId_threadId,situation_categoryName,situation_situationType_reasoningScope,situation_situationType_successDisposition,msgDataElement_msgId,msgDataElement_msgIdType,repeatCount,elapsedTime,sequenceNumber
+    Delimiter |
+</Extension>
+
+<Extension cbe_connect_situation>     
+		Module      xm_csv
+		Fields creationTime,version,severity,sourceComponentId_location,sourceComponentId_locationType,msg,globalInstanceId,sourceComponentId_component,sourceComponentId_subComponent,sourceComponentId.componentIdType,sourceComponentId_componentType,sourceComponentId_application,sourceComponentId_instanceId,sourceComponentId_processId,sourceComponentId_threadId,situation_categoryName,situation_situationType_reasoningScope,situation_situationType_successDisposition,situation_situationType_situationQualifier,msgDataElement_msgId,msgDataElement_msgIdType,repeatCount,elapsedTime,sequenceNumber
+    Delimiter |
+</Extension>
+
+<Extension cbe_create_situation>
+    Module      xm_csv     
+		Fields creationTime,version,severity,sourceComponentId_location,sourceComponentId_locationType,msg,globalInstanceId,sourceComponentId_component,sourceComponentId_subComponent,sourceComponentId.componentIdType,sourceComponentId_componentType,sourceComponentId_application,sourceComponentId_instanceId,sourceComponentId_processId,sourceComponentId_threadId,situation_categoryName,situation_situationType_reasoningScope,situation_situationType_successDisposition,msgDataElement_msgId,msgDataElement_msgIdType,repeatCount,elapsedTime,sequenceNumber
+    Delimiter |
+</Extension>
+
+<Extension cbe_dependency_situation>
+    Module      xm_csv 
+		Fields creationTime,version,severity,sourceComponentId_location,sourceComponentId_locationType,msg,globalInstanceId,sourceComponentId_component,sourceComponentId_subComponent,sourceComponentId.componentIdType,sourceComponentId_componentType,sourceComponentId_application,sourceComponentId_instanceId,sourceComponentId_processId,sourceComponentId_threadId,situation_categoryName,situation_situationType_reasoningScope,situation_situationType_dependencyDisposition,msgDataElement_msgId,msgDataElement_msgIdType,repeatCount,elapsedTime,sequenceNumber
+    Delimiter |
+</Extension>
+
+<Extension cbe_destroy_situation>
+    Module      xm_csv    
+		Fields creationTime,version,severity,sourceComponentId_location,sourceComponentId_locationType,msg,globalInstanceId,sourceComponentId_component,sourceComponentId_subComponent,sourceComponentId.componentIdType,sourceComponentId_componentType,sourceComponentId_application,sourceComponentId_instanceId,sourceComponentId_processId,sourceComponentId_threadId,situation_categoryName,situation_situationType_reasoningScope,situation_situationType_successDisposition,msgDataElement_msgId,msgDataElement_msgIdType,repeatCount,elapsedTime,sequenceNumber
+    Delimiter |
+</Extension>
+
+<Extension cbe_feature_situation>
+    Module      xm_csv    
+		Fields creationTime,version,severity,sourceComponentId_location,sourceComponentId_locationType,msg,globalInstanceId,sourceComponentId_component,sourceComponentId_subComponent,sourceComponentId.componentIdType,sourceComponentId_componentType,sourceComponentId_application,sourceComponentId_instanceId,sourceComponentId_processId,sourceComponentId_threadId,situation_categoryName,situation_situationType_reasoningScope,situation_situationType_featureDisposition,msgDataElement_msgId,msgDataElement_msgIdType,repeatCount,elapsedTime,sequenceNumber
+    Delimiter |
+</Extension>
+
+<Extension cbe_report_situation>
+    Module      xm_csv     
+		Fields creationTime,version,severity,sourceComponentId_location,sourceComponentId_locationType,msg,globalInstanceId,sourceComponentId_component,sourceComponentId_subComponent,sourceComponentId.componentIdType,sourceComponentId_componentType,sourceComponentId_application,sourceComponentId_instanceId,sourceComponentId_processId,sourceComponentId_threadId,situation_categoryName,situation_situationType_reasoningScope,situation_situationType_reportCategory,msgDataElement_msgId,msgDataElement_msgIdType,repeatCount,elapsedTime,sequenceNumber
+    Delimiter |
+</Extension>
+
+<Extension cbe_request_situation>
+    Module      xm_csv    
+		Fields creationTime,version,severity,sourceComponentId_location,sourceComponentId_locationType,msg,globalInstanceId,sourceComponentId_component,sourceComponentId_subComponent,sourceComponentId.componentIdType,sourceComponentId_componentType,sourceComponentId_application,sourceComponentId_instanceId,sourceComponentId_processId,sourceComponentId_threadId,situation_categoryName,situation_situationType_reasoningScope,situation_situationType_successDisposition,situation_situationType_situationQualifier,msgDataElement_msgId,msgDataElement_msgIdType,repeatCount,elapsedTime,sequenceNumber
+    Delimiter |
+</Extension>
+
+<Extension cbe_start_situation>
+    Module      xm_csv      
+		Fields creationTime,version,severity,sourceComponentId_location,sourceComponentId_locationType,msg,globalInstanceId,sourceComponentId_component,sourceComponentId_subComponent,sourceComponentId.componentIdType,sourceComponentId_componentType,sourceComponentId_application,sourceComponentId_instanceId,sourceComponentId_processId,sourceComponentId_threadId,situation_categoryName,situation_situationType_reasoningScope,situation_situationType_successDisposition,situation_situationType_situationQualifier,msgDataElement_msgId,msgDataElement_msgIdType,repeatCount,elapsedTime,sequenceNumber
+    Delimiter |
+</Extension>
+
+<Extension cbe_stop_situation>
+    Module      xm_csv       
+		Fields creationTime,version,severity,sourceComponentId_location,sourceComponentId_locationType,msg,globalInstanceId,sourceComponentId_component,sourceComponentId_subComponent,sourceComponentId.componentIdType,sourceComponentId_componentType,sourceComponentId_application,sourceComponentId_instanceId,sourceComponentId_processId,sourceComponentId_threadId,situation_categoryName,situation_situationType_reasoningScope,situation_situationType_successDisposition,situation_situationType_situationQualifier,msgDataElement_msgId,msgDataElement_msgIdType,repeatCount,elapsedTime,sequenceNumber
+    Delimiter |
+</Extension>
+
+
+ 
+### SENSU CHECK NAME:
+### Sensu check names can not contai special characters or spaces. So spaces are replaced with dot (.).
+ 
+### SENSU CHECK OUTPUT:
+### The value of CBE msg field is assigned to the value of the output field in sensu check result.
+ 
+### SENSU CHECK STATUS ( EXIT CODE)
+### The CBE severity is used to determine the sensu check exit code as follows
+### CBE_SEVERITY : CRITICAL/FATAL Sensu Check Status: 2
+### CBE SEVERITY: MINOR|WARNING Sensu Check Status: 1
+### CBE SEVERITY: HARMLESS Sensu Check Status: 0
+ 
+<Input input_5>
+  Module im_msvistalog
+  SavePos TRUE
+  Exec if ($Channel != "Application") AND ($Channel != "System") drop();
+  Exec if ($Message =~ /WMI Performance Adapter service/) AND ($EventID == 7036) drop();
+###Exec $nxlog_eikon_message = $Message;
+ Exec $nxlog_eikon_type = "cbe_event";
+ Exec $nxlog_eikon_source_host = "%EIKON_HOSTNAME%";
+ Exec $nxlog_eikon_source_path = "msvistalog";
+Exec $nxlog_eikon_source = "msvistalog://" + "%EIKON_HOSTNAME%";
+
+
+    Exec if ( $raw_event =~ /\|AvailableSituation\|/ ) \
+		cbe_available_situation->parse_csv(); \
+	else if ( $raw_event =~ /\|ConfigureSituation\|/) \
+		cbe_configure_situation->parse_csv(); \
+	else if ( $raw_event =~ /\|ConnectSituation\|/ ) \
+		cbe_connect_situation->parse_csv(); \
+	else if ( $raw_event =~ /\|CreateSituation\|/ ) \
+		cbe_create_situation->parse_csv(); \
+	else if ( $raw_event =~ /\|DependencySituation\|/ ) \
+		cbe_dependency_situation->parse_csv(); \
+	else if ( $raw_event =~ /\|DestroySituation\|/ ) \
+		cbe_destroy_situation->parse_csv(); \
+	else if ( $raw_event =~ /\|FeatureSituation\|/ ) \
+		cbe_feature_situation->parse_csv(); \
+	else if ( $raw_event =~ /\|ReportSituation\|/ ) \
+		cbe_report_situation->parse_csv(); \
+	else if ( $raw_event =~ /\|RequestSituation\|/ ) \
+		cbe_request_situation->parse_csv(); \
+	else if ( $raw_event =~ /\|StartSituation\|/ ) \
+		cbe_start_situation->parse_csv(); \
+	else if ( $raw_event =~ /\|StopSituation\|/ ) \
+		cbe_stop_situation->parse_csv(); \
+ 	else\
+		log_info("Not containing a recognised CBE situation category name or incorrect message format. No Sensu check created. Source log [" + $raw_event + "]" ); 
+
+
+    Exec if ( $situation_categoryName =~ /(AvailableSituation|ConnectSituation|CreateSituation|DependencySituation|DestroySituation|FeatureSituation|ReportSituation|RequestSituation|StartSituation|StopSituation)/ ) \
+        {\
+    		$nxlog_date = now();\
+    		if $severity =~ /(CRITICAL|FATAL)/ $status = 2;\
+    		if $severity =~ /(MINOR|WARNING)/ $status = 1;\
+    		if $severity =~ /HARMLESS/ $status = 0;\
+    		if not defined $status $status = 0;\
+    		$check_name = "component." + $sourceComponentId_component + ".subcomponent." + $sourceComponentId_subComponent + ".msgId." + $msgDataElement_msgId;\
+    		$name = $check_name;\
+    		if $name =~ s/\s/./g log_info("Replaced spaces with . from check name [" +  $check_name + "]" + " New check name [" + $name + "]");\
+    		$output = $msg;\
+    		$nxlog_eikon_type = "cbe_event";\
+                to_json();\
+    		log_info("NXLOG sensu check json [" + $raw_event + "]");\
+	}\
+ 	else\
+ 	{\
+		log_info("Parsed CBE situation category name is NOT one of the expected values. Assigned value: [" + $ituation_categoryName+ "]" ); \
+        }
+
+Exec $raw_event_for_sensu = '{' + '"status":' + $status + ',"name":' + '"' + $name + '"' + ',"output":' + '"' + $output + '"' + '}';
+Exec log_info("RAW EVENT last [[" + $raw_event_for_sensu + "]]");
+</Input>
+ 
+ 
+### This section re-formats the raw message into json format and sends it to sensu client port 3030 on the local machine.
+ 
+<Output from_nxlog_to_sensu_client>
+  #Exec to_json();
+  Exec $raw_event = $raw_event_for_sensu;
+  Module om_tcp
+  Host   localhost
+  Port   3030
+</Output>
+ 
+<Route input_5-output_from_nxlog_to_sensu_client>
+  Path input_5 => from_nxlog_to_sensu_client
+</Route>
+
+<Route input_5-output_eikon_json_tcp>
+  Path input_5 => output_eikon_json_tcp
+</Route>
+ 
+### This section forces nxlog to save the resultant json formatted message in a file for troubleshooting purposes.It can be removed in the actual implementation.
+ 
+<Output fileout>
+    Exec $raw_event = $raw_event_for_sensu;
+    #Exec to_json();
+    Module om_file
+    File "c:/temp/nxlog-sensu1.log"
+</Output>
+ 
+<Route input_5-output_fileout>
+  Path input_5 => fileout
+</Route>
+
+

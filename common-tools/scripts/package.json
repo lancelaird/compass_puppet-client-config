@@ -1,0 +1,15 @@
+{
+  "name": "compass-common-tools",
+  "author": "Andy Washbrook <andy.washbrook@thomsonreuters.com>",
+  "contributors": [],
+  "description": "Tests for common tools build intergration with SAMI and CDA.",
+  "version": "0.0.1",
+  "devDependencies": {
+    "chai": "1.9.1",
+    "grunt-mocha-istanbul": "2.0.0",
+    "istanbul-harmony": "0.3.0"
+  },
+  "scripts": {
+    "test": "./functions.sh; jshint *.js test/spec; ./node_modules/.bin/mocha test/spec"
+  }
+}

@@ -1,0 +1,94 @@
+require 'fileutils'
+require 'logger'
+require 'rspec/core/rake_task'
+
+logger = Logger.new(STDOUT)
+logger.level = Logger::INFO
+logger.datetime_format = '%Y-%m-%d %H:%M:%S'
+logger.formatter = proc do |severity, datetime, progname, msg|
+  "[#{datetime} #{severity}] #{msg}\n"
+end
+
+$: << 'lib'
+require 'scribe'
+
+scribe = Scribe.new
+
+namespace :hiera do
+
+  desc "Updates or adds a package definition to a Hiera config file (YAML)"
+  task :compassartifact, :config_file_path, :name, :version, :architecture, :tag, :vendor  do | t, args |
+    name = args[:name]
+    config_xml = args[:config_file_path]
+
+    unless(name.nil?)
+      package = { name => { 'architecture' => 'noarch' } }
+      [:version, :architecture, :tag, :vendor].each { | key | package[name][key.to_s] = args[key] unless args[key].nil? }
+
+      scribe.
+          ensure_presence_of(package).
+          compassin_hiera(config_xml)
+
+      logger.info("Updated '#{ config_xml }' with #{ package }")
+    end
+  end
+
+  desc "Updates or adds a package definition to a Hiera config file (YAML)"
+  task :artifact, :config_file_path, :name, :version, :architecture, :tag, :vendor  do | t, args |
+    name = args[:name]
+    config_xml = args[:config_file_path]
+    puts "set name "
+    puts name
+    puts "set config_xml "
+    puts config_xml
+
+    unless(name.nil?)
+      package = { name => { 'architecture' => 'noarch' } }
+      [:version, :architecture, :tag, :vendor].each { | key | package[name][key.to_s] = args[key] unless args[key].nil? }
+    puts "set package "
+    puts package
+
+      scribe.
+          ensure_presence_of(package).
+          in_hiera(config_xml)
+
+      logger.info("Updated '#{ config_xml }' with #{ package }")
+    end
+  end
+end
+
+namespace :nolio do
+  desc "Sets release name and version in a Nolio config file (XML)"
+  task :update, :config_file_path, :release_name, :release_version do | t, args |
+    config_xml = args[:config_file_path]
+
+    scribe.
+        update_nolio(config_xml, release_name: args[:release_name], release_version: args[:release_version])
+
+    logger.info("Set release name to '#{ args[:release_name] }'  in '#{args[:config_file_path]}'") unless args[:release_name].empty?
+    logger.info("Set release version to '#{ args[:release_version] }' in '#{args[:config_file_path]}'") unless args[:release_version].empty?
+  end
+
+  desc "Updates or adds a package definition to a Nolio config file (XML)"
+  task :artifact, :config_file_path, :url, :md5 do | t, args |
+    config_xml = args[:config_file_path]
+
+    scribe.
+        ensure_presence_of({
+          'url' => args[:url],
+          'md5' => args[:md5]
+        }).
+        in_nolio(config_xml)
+
+    logger.info("Artifact '#{ args[:url] }' checksum set to '#{ args[:md5] }' in '#{args[:config_file_path]}' ")
+  end
+end
+
+task :clean do
+  FileUtils.rm_rf 'target'
+end
+
+RSpec::Core::RakeTask.new(:spec) do |t|
+  FileUtils.mkdir_p 'target'
+  t.rspec_opts = %w[-f JUnit -o target/results.xml]
+end
