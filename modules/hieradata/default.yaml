@@ -1,0 +1,4 @@
+---
+
+compass_agent_config::additional_nxlog_config: compass_agent_config/additional.nxlog.conf.erb
+
