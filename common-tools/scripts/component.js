@@ -15,7 +15,7 @@ function Component(name, version) {
     // To manally validate your JSON, run 'node' on cmd line (REPL) and paste in the following:
     // var Component = require('./component'); new Component("Very Special Component", 42);
 
-    var group = "Compass Monitoring"; // Umbrella for all compass tools as per Mat
+    var group = "Compass Tools"; // Umbrella for all compass tools as per Mat
 
     // We assume that component and stack are given the same name by designer in CUDL!
     var componentname = name;
